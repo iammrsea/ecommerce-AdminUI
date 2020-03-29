@@ -39,7 +39,7 @@ const LoginForm = ({ handleSubmit }) => {
 
 	return (
 		<GridRow className="grey lighten-5" style={style.login}>
-			<h2 className="header center-align" style={style.header}>
+			<h2 className="header center-align indigo-text" style={style.header}>
 				Login
 			</h2>
 			<GridRow>
