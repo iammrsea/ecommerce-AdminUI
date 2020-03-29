@@ -41,13 +41,7 @@ main {
 	cursor: pointer;
 }
 
-#order-table span {
-	width: 100%;
-	// text-align: center;
-	font-size: 2.28rem;
-	color: #3f51b5 !important;
-	padding: 20px;
-}
+
 
 .product-btn:hover {
 	background-color: #3f51b5;
@@ -107,6 +101,14 @@ main {
 	font-weight: 500;
 }
 
+#order-table span {
+	width: 100%;
+	// text-align: center;
+	font-size: 2.28rem;
+	color: #3f51b5 !important;
+	padding: 20px;
+}
+
 @media only screen and (max-width: 766px) {
 	.register-action-buttons-container {
 		flex-direction: column;
@@ -116,6 +118,10 @@ main {
 @media only screen and (max-width: 621px) {
 	.user-profile-detail-title {
 		font-size: 20px;
+	}
+
+	#order-table span {
+		font-size: 1.5rem;
 	}
 }
 
