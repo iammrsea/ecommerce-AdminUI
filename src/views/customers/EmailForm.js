@@ -70,7 +70,9 @@ const EmailForm = ({ closeModal, selectedRows }) => {
 						onChange={handleOnChange}
 						style={styles.recipients}
 					></textarea>
-					<label htmlFor="email-ids">Recipients</label>
+					<label className="active" htmlFor="email-ids">
+						Recipients
+					</label>
 				</GridItem>
 			</GridRow>
 			<GridRow>

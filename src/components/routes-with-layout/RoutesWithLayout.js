@@ -5,7 +5,7 @@ import { AdminLogin, ProductDetailView, CustomerProfileView } from 'views';
 
 // import StoreRoutings from 'views/store/StoreRouting';
 
-import { isLoggedIn, isAdmin, isEmployee } from 'service/auth/auth';
+import { isLoggedIn, isCustomer } from 'service/auth/auth';
 
 import { AdminLayout } from 'layouts';
 
@@ -16,7 +16,7 @@ export default ({ routes }) => {
 			path={route.url}
 			exact
 			render={() => {
-				if (isLoggedIn()) {
+				if (isLoggedIn() && !isCustomer()) {
 					return <AdminLayout>{route.component}</AdminLayout>;
 				}
 				return <Redirect to="/admin" />;
@@ -25,18 +25,24 @@ export default ({ routes }) => {
 	));
 	return (
 		<>
-			<Route exact path="/admin" component={AdminLogin} />
+			<Route
+				exact
+				path="/admin"
+				render={() => {
+					if (isLoggedIn() && !isCustomer()) return <Redirect to="/admin/dashboard" />;
+					return <AdminLogin />;
+				}}
+			/>
 			<Route
 				exact
 				path="/admin/customers/:id"
 				render={() => {
-					if (isLoggedIn()) {
-						if (isAdmin() || isEmployee())
-							return (
-								<AdminLayout>
-									<CustomerProfileView />
-								</AdminLayout>
-							);
+					if (isLoggedIn() && !isCustomer()) {
+						return (
+							<AdminLayout>
+								<CustomerProfileView />
+							</AdminLayout>
+						);
 					}
 					return <Redirect to="/admin" />;
 				}}
@@ -44,11 +50,15 @@ export default ({ routes }) => {
 			<Route
 				exact
 				path="/admin/products/:id"
-				render={() => (
-					<AdminLayout>
-						<ProductDetailView />
-					</AdminLayout>
-				)}
+				render={() => {
+					if (isLoggedIn() && !isCustomer())
+						return (
+							<AdminLayout>
+								<ProductDetailView />
+							</AdminLayout>
+						);
+					return <Redirect to="/admin" />;
+				}}
 			/>
 			<Switch>{allowedRoutes}</Switch>
 		</>

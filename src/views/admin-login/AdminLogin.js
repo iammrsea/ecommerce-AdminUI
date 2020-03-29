@@ -24,7 +24,7 @@ const AdminLogin = () => {
 			.then(res => {
 				setSubmitting(false);
 				if (res.data.user.role === 'Customer') {
-					return history.replace('/admin/customer-dashboard/login');
+					return history.replace('/admin');
 				} else {
 					saveUser(res.data);
 					history.push('/admin/profile');

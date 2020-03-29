@@ -65,3 +65,6 @@ export const isFromStore = () => {
 	}
 	return !!cart;
 };
+export const isAdminRoute = location => {
+	return location.pathname === '/admin' || location.pathname === '/admin/';
+};

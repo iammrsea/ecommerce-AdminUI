@@ -1,11 +1,12 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { LinearProgress, Container } from 'components';
 import { InputField } from 'components/material-fields';
 import { GridRow, GridItem } from 'components/grid';
 import { Flat } from 'components/buttons';
+import { isAdminRoute } from 'service/auth/auth';
 
 const style = {
 	login: {
@@ -23,6 +24,7 @@ const style = {
 
 const LoginForm = ({ handleSubmit }) => {
 	const history = useHistory();
+	const location = useLocation();
 
 	const validateForm = values => {
 		const errors = {};
@@ -74,9 +76,11 @@ const LoginForm = ({ handleSubmit }) => {
 										/>
 										<ErrorMessage name="password" component="div" style={{ color: 'red' }} />
 										<div className=" right-align">
-											<Flat onClick={handleRegisterClick} type="submit">
-												Sign Up
-											</Flat>
+											{!isAdminRoute(location) && (
+												<Flat onClick={handleRegisterClick} type="submit">
+													Sign Up
+												</Flat>
+											)}
 
 											<Flat onClick={submitForm} disabled={isSubmitting} type="submit">
 												Sign In
