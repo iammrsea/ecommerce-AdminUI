@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import StoreLayout from './Home';
 
 import routes from './routes';
-import { isLoggedIn, isCustomer } from 'service/auth/auth';
+import { isLoggedIn, isCustomer, isFromStore } from 'service/auth/auth';
 
 export default () => {
 	const routeList = routes.map((route, i) => (
@@ -13,14 +13,20 @@ export default () => {
 			key={route.name + i}
 			path={route.url}
 			render={() => {
-				if (route.name === 'Checkout' || route.name === 'Dashboard') {
+				if (route.url === '/dashboard' || route.url === '/dashboard/checkout') {
 					if (isLoggedIn() && isCustomer()) {
 						return <StoreLayout>{route.component}</StoreLayout>;
-					} else if (isLoggedIn() && !isCustomer()) {
-						return <Redirect to="/admin/profile" />;
 					} else {
-						return <Redirect to="/admin/customer-dashboard/login" />;
+						return <Redirect to="/dashboard/login" />;
 					}
+				} else if (route.url === '/dashboard/login' || route.url === '/dashboard/register') {
+					if (isLoggedIn() && isCustomer() && isFromStore()) {
+						return <Redirect to="/dashboard/checkout" />;
+					}
+					if (isLoggedIn() && isCustomer()) {
+						return <Redirect to="/dashboard" />;
+					}
+					return <StoreLayout>{route.component}</StoreLayout>;
 				} else {
 					return <StoreLayout>{route.component}</StoreLayout>;
 				}

@@ -17,10 +17,10 @@ const Login = () => {
 			.then(res => {
 				setSubmitting(false);
 				if (res.data.user.role !== 'Customer') {
-					return history.replace('/admin');
+					return history.replace('/dashboard/login');
 				}
 				saveUser(res.data);
-				history.push('/admin/customer-dashboard');
+				history.push('/dashboard');
 			})
 			.catch(e => {
 				setSubmitting(false);

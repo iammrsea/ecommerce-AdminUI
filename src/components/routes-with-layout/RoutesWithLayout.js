@@ -5,7 +5,7 @@ import { AdminLogin, StoreHomeView, ProductDetailView, CustomerProfileView } fro
 
 import StoreRoutings from 'views/store/StoreRouting';
 
-import { isLoggedIn, isAdmin, isEmployee, isFromStore } from 'service/auth/auth';
+import { isLoggedIn, isAdmin, isEmployee } from 'service/auth/auth';
 
 import { AdminLayout } from 'layouts';
 
@@ -25,21 +25,7 @@ export default ({ routes }) => {
 	));
 	return (
 		<>
-			<Route
-				exact
-				path="/admin"
-				render={() => {
-					if (isLoggedIn()) {
-						if (!isCustomer()) {
-							return <Redirect to="/admin/profile" />;
-						}
-						return <Redirect to="/admin/customer-dashboard/dashboard" />;
-					} else if (isFromStore()) {
-						return <Redirect to="/admin/customer-dashboard/login" />;
-					}
-					return <AdminLogin />;
-				}}
-			/>
+			<Route exact path="/admin" component={AdminLogin} />
 			<Route
 				exact
 				path="/admin/customers/:id"

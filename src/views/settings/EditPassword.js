@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 
-import { LinearProgress, Alert } from 'components';
+import { LinearProgress } from 'components';
 import { Card, CardHeader, CardBody } from 'components/card';
 import { Flat } from 'components/buttons';
 import { InputField } from 'components/material-fields';

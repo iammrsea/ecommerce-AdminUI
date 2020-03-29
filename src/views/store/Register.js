@@ -97,9 +97,7 @@ const Register = () => {
 												>
 													Already have an account?
 												</span>
-												<Flat onClick={() => history.push('/admin/customer-dashboard/login')}>
-													Login
-												</Flat>
+												<Flat onClick={() => history.push('/dashboard/login')}>Login</Flat>
 											</div>
 										</div>
 									</Form>

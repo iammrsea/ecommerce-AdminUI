@@ -1,11 +1,11 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import { LinearProgress, Alert, Container } from 'components';
+import { LinearProgress, Container } from 'components';
 import { InputField } from 'components/material-fields';
 import { GridRow, GridItem } from 'components/grid';
-import { Normal } from 'components/buttons';
+import { Flat } from 'components/buttons';
 
 const style = {
 	login: {
@@ -23,7 +23,6 @@ const style = {
 
 const LoginForm = ({ handleSubmit }) => {
 	const history = useHistory();
-	const location = useLocation();
 
 	const validateForm = values => {
 		const errors = {};
@@ -35,10 +34,7 @@ const LoginForm = ({ handleSubmit }) => {
 		return errors;
 	};
 	const handleRegisterClick = () => {
-		history.push('/admin/customer-dashboard/register');
-	};
-	const shouldShowRegister = () => {
-		return location.pathname === '/admin/customer-dashboard/login';
+		history.push('/dashboard/register');
 	};
 
 	return (
@@ -78,19 +74,13 @@ const LoginForm = ({ handleSubmit }) => {
 										/>
 										<ErrorMessage name="password" component="div" style={{ color: 'red' }} />
 										<div className=" right-align">
-											{shouldShowRegister() && (
-												<Normal className="indigo" onClick={handleRegisterClick} type="submit">
-													Register
-												</Normal>
-											)}
-											<Normal
-												className="indigo"
-												onClick={submitForm}
-												disabled={isSubmitting}
-												type="submit"
-											>
-												Submit
-											</Normal>
+											<Flat onClick={handleRegisterClick} type="submit">
+												Sign Up
+											</Flat>
+
+											<Flat onClick={submitForm} disabled={isSubmitting} type="submit">
+												Sign In
+											</Flat>
 										</div>
 									</Form>
 								</>

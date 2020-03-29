@@ -38,7 +38,7 @@ export default ({ user, isCustomer, openModal }) => {
 	};
 	const signOutCustomer = () => {
 		signOut();
-		history.replace('/admin/customer-dashboard/login');
+		history.replace('/dashboard/login');
 	};
 	return (
 		<Card>
