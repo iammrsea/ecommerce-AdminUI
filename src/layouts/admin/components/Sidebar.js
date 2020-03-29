@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { Collection, CollectionItem } from 'components/collections';
 import Brand from './Brand';
 
-const Sidebar = ({ pages }) => {
+const Sidebar = ({ pages, closeSidenav }) => {
 	const activeRoute = routeName => {
 		const urlParts = routeName.split('/');
 		return window.location.href.endsWith(urlParts[urlParts.length - 1]);
@@ -14,7 +14,7 @@ const Sidebar = ({ pages }) => {
 	const items =
 		pages.length > 0 &&
 		pages.map((page, i) => (
-			<CollectionItem key={page.name + i}>
+			<CollectionItem key={page.name + i} onClick={closeSidenav}>
 				<NavLink
 					to={page.url}
 					activeClassName={clsx({ active: activeRoute(page.url) })}

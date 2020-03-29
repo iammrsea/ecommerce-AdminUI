@@ -15,16 +15,20 @@ const routes = () => {
 };
 
 const Admin = ({ children }) => {
+	const sideNav = React.useRef(null);
 	React.useEffect(() => {
 		const elems = document.querySelectorAll('.sidenav');
 		// eslint-disable-next-line
-		M.Sidenav.init(elems);
+		sideNav.current = M.Sidenav.init(elems);
 	});
+	const handleCloseSidenav = () => {
+		sideNav.current[0].close();
+	};
 
 	return (
 		<>
 			<Navbar />
-			<Sidebar pages={routes()} />
+			<Sidebar pages={routes()} closeSidenav={handleCloseSidenav} />
 			<main>{children}</main>
 			<Footer />
 		</>

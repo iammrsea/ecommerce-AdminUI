@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/dashboard",
+  "homepage": "/admin",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.0",
     "@stripe/stripe-js": "^1.2.0",

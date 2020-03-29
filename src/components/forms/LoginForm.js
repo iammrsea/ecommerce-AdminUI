@@ -18,7 +18,11 @@ const style = {
 		padding: 40,
 	},
 	input: {
-		padding: '5px 10px',
+		// padding: '15px',
+		borderRadius: '5px',
+		marginBottom: 25,
+		color: '#fff',
+		fontSize: '18px',
 	},
 };
 
@@ -40,8 +44,8 @@ const LoginForm = ({ handleSubmit }) => {
 	};
 
 	return (
-		<GridRow className="grey lighten-5" style={style.login}>
-			<h2 className="header center-align indigo-text" style={style.header}>
+		<GridRow className="grey lighten-5 login" style={style.login}>
+			<h2 className="header center-align white-text" style={style.header}>
 				Login
 			</h2>
 			<GridRow>
@@ -62,6 +66,7 @@ const LoginForm = ({ handleSubmit }) => {
 											label="Username"
 											id="username"
 											autoFocus
+											styleLabel="login-label"
 											style={style.input}
 										/>
 										<ErrorMessage name="username" component="div" style={{ color: 'red' }} />
@@ -71,18 +76,24 @@ const LoginForm = ({ handleSubmit }) => {
 											type="password"
 											name="password"
 											id="password"
+											styleLabel="login-label"
 											autoComplete="off"
 											style={style.input}
 										/>
 										<ErrorMessage name="password" component="div" style={{ color: 'red' }} />
 										<div className=" right-align">
 											{!isAdminRoute(location) && (
-												<Flat onClick={handleRegisterClick} type="submit">
+												<Flat className="login-btn" onClick={handleRegisterClick} type="submit">
 													Sign Up
 												</Flat>
 											)}
 
-											<Flat onClick={submitForm} disabled={isSubmitting} type="submit">
+											<Flat
+												className="login-btn"
+												onClick={submitForm}
+												disabled={isSubmitting}
+												type="submit"
+											>
 												Sign In
 											</Flat>
 										</div>

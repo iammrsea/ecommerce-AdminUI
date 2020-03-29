@@ -8,7 +8,7 @@ const Flat = props => {
 	return (
 		<button
 			style={{ textTransform: 'capitalize' }}
-			className={clsx(['btn waves-effect waves-light btn-flat product-btn', className])}
+			className={clsx(['btn waves-effect waves-light btn-flat ', { 'product-btn': !className }, className])}
 			{...rest}
 		>
 			{children}

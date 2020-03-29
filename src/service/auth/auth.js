@@ -68,3 +68,6 @@ export const isFromStore = () => {
 export const isAdminRoute = location => {
 	return location.pathname === '/admin' || location.pathname === '/admin/';
 };
+export const isHomeRoute = location => {
+	return location.pathname === '/';
+};
