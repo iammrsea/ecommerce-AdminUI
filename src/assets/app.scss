@@ -45,7 +45,7 @@ main {
 	width: 100%;
 	// text-align: center;
 	font-size: 2.28rem;
-	color: #3f51b5;
+	color: #3f51b5 !important;
 	padding: 20px;
 }
 
@@ -102,9 +102,20 @@ main {
 	align-items: center;
 }
 
+.user-profile-detail-title {
+	font-size: 30px;
+	font-weight: 500;
+}
+
 @media only screen and (max-width: 766px) {
 	.register-action-buttons-container {
 		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 621px) {
+	.user-profile-detail-title {
+		font-size: 20px;
 	}
 }
 

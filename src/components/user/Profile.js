@@ -46,9 +46,9 @@ export default ({ user, isCustomer, openModal }) => {
 				<CardBody>
 					<Collection className="with-header">
 						<CollectionHeader className="indigo-text">
-							<h4>
+							<span className="user-profile-detail-title">
 								{!isCustomer && user.role === 'Customer' ? 'Customer Profile' : 'User Profile Details'}
-							</h4>
+							</span>
 						</CollectionHeader>
 						{userDetail(user)}
 						{user.role === 'Customer' && (

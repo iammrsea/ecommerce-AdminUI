@@ -52,11 +52,7 @@ const Navbar = () => {
 			<nav>
 				<div className="nav-wrapper indigo">
 					<Container>
-						<span
-							onClick={handleLogoClick}
-							style={{ cursor: 'pointer' }}
-							className="brand-logo hide-on-med-and-down link"
-						>
+						<span onClick={handleLogoClick} style={{ cursor: 'pointer' }} className="brand-logo link">
 							WDYF
 						</span>
 						<ul id="nav-mobile" className="right hide-on-med-and-down">
