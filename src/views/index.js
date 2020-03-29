@@ -1,0 +1,11 @@
+export { default as Dashboard } from './dashboard/Dashboard';
+export { default as AdminLogin } from './admin-login/AdminLogin';
+export { default as EmployeeView } from './employees/Employees';
+export { default as CustomerView } from './customers/Customers';
+export { default as UserProfileView } from './user-profile/UserProfile';
+export { default as ProductView } from './products/Products';
+export { default as ProductDetailView } from './products/ProductDetail';
+export { default as CategoryView } from './categories/Categories';
+export { default as SettingView } from './settings/Settings';
+export { default as CustomerProfileView } from './customers/profile/CustomerProfile';
+export { default as StoreHomeView } from './store/Home';
