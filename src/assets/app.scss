@@ -24,13 +24,19 @@ main {
 
 }
 
+#register-form label {
+	color: #fff;
+	font-size: 16px;
+	top: -10px !important;
+}
+
 .login-label input {
 	background-color: #fff;
 }
 
 .login-btn {
 	color: #fff;
-	font-size: 25px;
+	font-size: 20px;
 	border-radius: 10px;
 
 }
@@ -40,7 +46,6 @@ main {
 }
 
 .login {
-	background-color: red !important;
 	background-image: url('./img/wedoyourfarm.jpg');
 }
 

@@ -10,7 +10,9 @@ import client from 'service/client';
 
 const Login = () => {
 	const history = useHistory();
-
+	React.useEffect(() => {
+		document.body.classList.remove('has-fixed-sidenav');
+	}, []);
 	const handleSubmit = (values, { setSubmitting }) => {
 		client()
 			.post('/auth/login', { username: values.username.trim(), password: values.password.trim() })

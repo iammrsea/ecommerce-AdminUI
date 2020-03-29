@@ -13,13 +13,24 @@ import client from 'service/client';
 import { validateUserForm } from 'utils';
 
 const style = {
-	input: {
-		padding: '5px 10px',
+	login: {
+		marginBottom: 0,
 	},
 	action: {
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
+	},
+	header: {
+		marginTop: 0,
+		padding: 40,
+	},
+	input: {
+		// padding: '15px',
+		borderRadius: '5px',
+		marginBottom: 25,
+		color: '#fff',
+		fontSize: '18px',
 	},
 };
 
@@ -36,6 +47,9 @@ const initialValues = {
 const Register = () => {
 	const history = useHistory();
 
+	React.useEffect(() => {
+		document.body.classList.remove('has-fixed-sidenav');
+	}, []);
 	const validateForm = values => {
 		const errors = validateUserForm(values);
 		if (!values.password) {
@@ -63,16 +77,16 @@ const Register = () => {
 	};
 
 	return (
-		<GridRow style={{ marginTop: 40 }}>
+		<GridRow className="login" style={style.login}>
 			<GridItem sm={12} md={8} mdOffset={2}>
-				<Card>
+				<Card className="transparent">
 					<CardBody>
-						<CardHeader className="indigo-text center-align">Sign Up</CardHeader>
+						<CardHeader className="white-text center-align">Sign Up</CardHeader>
 						<Formik initialValues={initialValues} validate={validateForm} onSubmit={handleSubmit}>
 							{({ isSubmitting, submitForm }) => (
 								<>
-									<Form>
-										<UserForm />
+									<Form id="register-form">
+										<UserForm inputStyle={style.input} />
 										<InputField
 											name="password"
 											label="Password"
@@ -82,22 +96,37 @@ const Register = () => {
 											id="password"
 											style={style.input}
 										/>
-										<ErrorMessage name="password" component="div" style={{ color: 'red' }} />
+										<ErrorMessage
+											name="password"
+											component="div"
+											style={{ color: 'orange', marginBottom: 30 }}
+										/>
 										<div className="register-action-buttons-container">
-											<Flat onClick={submitForm} disabled={isSubmitting} type="submit">
+											<Flat
+												className="login-btn"
+												onClick={submitForm}
+												disabled={isSubmitting}
+												type="submit"
+											>
 												Sign Up
 											</Flat>
 											<div>
 												<span
 													style={{
-														fontWeight: 600,
+														fontWeight: 500,
 														display: 'inline-block',
 														marginRight: 10,
+														color: '#fff',
 													}}
 												>
 													Already have an account?
 												</span>
-												<Flat onClick={() => history.push('/dashboard/login')}>Sign In</Flat>
+												<Flat
+													className="login-btn"
+													onClick={() => history.push('/dashboard/login')}
+												>
+													Sign In
+												</Flat>
 											</div>
 										</div>
 									</Form>

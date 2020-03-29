@@ -1,12 +1,15 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, useLocation } from 'react-router-dom';
 
 import StoreLayout from './Home';
+import CustomerLogin from './Login';
+import CustomerRegister from './Register';
 
 import routes from './routes';
-import { isLoggedIn, isCustomer, isFromStore } from 'service/auth/auth';
+import { isLoggedIn, isCustomer, isFromStore, isHomeRoute } from 'service/auth/auth';
 
 export default () => {
+	const location = useLocation();
 	const routeList = routes.map((route, i) => (
 		<Route
 			exact
@@ -20,14 +23,6 @@ export default () => {
 						return <StoreLayout>{route.component}</StoreLayout>;
 					}
 					return <Redirect to="/dashboard/login" />;
-				} else if (route.url === '/dashboard/login' || route.url === '/dashboard/register') {
-					if (isLoggedIn() && isCustomer() && isFromStore()) {
-						return <Redirect to="/dashboard/checkout" />;
-					}
-					if (isLoggedIn() && isCustomer()) {
-						return <Redirect to="/dashboard" />;
-					}
-					return <StoreLayout>{route.component}</StoreLayout>;
 				} else {
 					return <StoreLayout>{route.component}</StoreLayout>;
 				}
@@ -35,5 +30,26 @@ export default () => {
 		/>
 	));
 
-	return <>{routeList}</>;
+	return (
+		<>
+			<Route
+				exact
+				path="/dashboard/login"
+				render={() => {
+					if (isLoggedIn() && isCustomer()) return <Redirect to="/dashboard" />;
+					return <CustomerLogin />;
+				}}
+			/>
+			<Route
+				exact
+				path="/dashboard/register"
+				render={() => {
+					if (isLoggedIn() && isCustomer()) return <Redirect to="/dashboard" />;
+					return <CustomerRegister />;
+				}}
+			/>
+			{routeList}
+			{!isHomeRoute(location) && <Redirect to="/dashboard/login" />}
+		</>
+	);
 };

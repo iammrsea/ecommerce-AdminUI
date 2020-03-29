@@ -71,3 +71,6 @@ export const isAdminRoute = location => {
 export const isHomeRoute = location => {
 	return location.pathname === '/';
 };
+export const isCustomerRoute = location => {
+	return location.pathname === '/dashboard' || location.pathname === '/dashboard/';
+};

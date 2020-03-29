@@ -11,18 +11,18 @@ export default [
 		icon: <MaterialIcon children={'dashboard'} />,
 		component: <DashboardView />,
 	},
-	{
-		url: '/dashboard/register',
-		name: 'Register',
-		icon: <MaterialIcon children="person_add" />,
-		component: <RegisterView />,
-	},
-	{
-		url: '/dashboard/login',
-		name: 'Login',
-		icon: <MaterialIcon children="account_circle" />,
-		component: <LoginView />,
-	},
+	// {
+	// 	url: '/dashboard/register',
+	// 	name: 'Register',
+	// 	icon: <MaterialIcon children="person_add" />,
+	// 	component: <RegisterView />,
+	// },
+	// {
+	// 	url: '/dashboard/login',
+	// 	name: 'Login',
+	// 	icon: <MaterialIcon children="account_circle" />,
+	// 	component: <LoginView />,
+	// },
 	{
 		url: '/dashboard/checkout',
 		name: 'Checkout',
