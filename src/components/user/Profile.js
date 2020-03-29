@@ -85,7 +85,7 @@ export default ({ user, isCustomer, openModal }) => {
 			<div id="order-table">
 				{user && user.role === 'Customer' && (
 					<OrderTable
-						title={isCustomer ? 'Your Orders' : 'Customer Orders'}
+						title={isCustomer ? <span>Your Orders</span> : <span>Customer Orders</span>}
 						orders={user && user.orders ? user.orders : []}
 					/>
 				)}
