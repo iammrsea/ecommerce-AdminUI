@@ -13,12 +13,13 @@ export default () => {
 			key={route.name + i}
 			path={route.url}
 			render={() => {
-				if (route.url === '/dashboard' || route.url === '/dashboard/checkout') {
+				if (route.url === '/dashboard' && isLoggedIn() && isCustomer() && isFromStore()) {
+					return <Redirect to="/dashboard/checkout" />;
+				} else if (route.url === '/dashboard' || route.url === '/dashboard/checkout') {
 					if (isLoggedIn() && isCustomer()) {
 						return <StoreLayout>{route.component}</StoreLayout>;
-					} else {
-						return <Redirect to="/dashboard/login" />;
 					}
+					return <Redirect to="/dashboard/login" />;
 				} else if (route.url === '/dashboard/login' || route.url === '/dashboard/register') {
 					if (isLoggedIn() && isCustomer() && isFromStore()) {
 						return <Redirect to="/dashboard/checkout" />;

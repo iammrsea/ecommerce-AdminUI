@@ -8,4 +8,4 @@ export { default as ProductDetailView } from './products/ProductDetail';
 export { default as CategoryView } from './categories/Categories';
 export { default as SettingView } from './settings/Settings';
 export { default as CustomerProfileView } from './customers/profile/CustomerProfile';
-export { default as StoreHomeView } from './store/Home';
+// export { default as StoreHomeView } from './store/Home';

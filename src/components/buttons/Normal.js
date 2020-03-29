@@ -6,7 +6,11 @@ const Normal = props => {
 	const { children, className, ...rest } = props;
 
 	return (
-		<button className={clsx(['btn waves-effect waves-light', className])} {...rest}>
+		<button
+			style={{ textTransform: 'capitalize' }}
+			className={clsx(['btn waves-effect waves-light', className])}
+			{...rest}
+		>
 			{children}
 		</button>
 	);

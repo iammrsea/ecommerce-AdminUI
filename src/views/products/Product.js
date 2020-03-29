@@ -10,12 +10,6 @@ import { MaterialIcon } from 'components/icons';
 
 import EditForm from './EditForm';
 
-const styles = {
-	listItem: {
-		fontWeight: 500,
-	},
-};
-
 const Product = ({ product, updateProduct }) => {
 	const productDetail = product => {
 		const localProduct = {

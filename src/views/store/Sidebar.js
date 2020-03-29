@@ -8,7 +8,7 @@ import { activeRoute } from 'utils';
 
 import routes from './routes';
 
-const Sidenav = () => {
+const Sidenav = ({ closeSidenav }) => {
 	const routeList = () => {
 		let filteredRoutes;
 		if (isLoggedIn()) {
@@ -16,7 +16,7 @@ const Sidenav = () => {
 				.filter(route => route.name !== 'Register')
 				.filter(route => route.name !== 'Login')
 				.map((route, i) => (
-					<CollectionItem key={route.name + i} className="waves-effect ">
+					<CollectionItem onClick={closeSidenav} key={route.name + i} className="waves-effect ">
 						<NavLink activeClassName={clsx({ active: activeRoute(route.url) })} to={route.url}>
 							{route.icon}
 							{route.name}
@@ -25,7 +25,7 @@ const Sidenav = () => {
 				));
 		} else {
 			filteredRoutes = routes.map((route, i) => (
-				<CollectionItem key={route.name + i} className="waves-effect ">
+				<CollectionItem onClick={closeSidenav} key={route.name + i} className="waves-effect ">
 					<NavLink to={route.url} activeClassName={clsx({ active: activeRoute(route.url) })}>
 						{route.icon}
 						{route.name}

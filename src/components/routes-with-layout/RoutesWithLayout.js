@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { AdminLogin, StoreHomeView, ProductDetailView, CustomerProfileView } from 'views';
+import { AdminLogin, ProductDetailView, CustomerProfileView } from 'views';
 
-import StoreRoutings from 'views/store/StoreRouting';
+// import StoreRoutings from 'views/store/StoreRouting';
 
 import { isLoggedIn, isAdmin, isEmployee } from 'service/auth/auth';
 
@@ -50,10 +50,7 @@ export default ({ routes }) => {
 					</AdminLayout>
 				)}
 			/>
-			<Switch>
-				{allowedRoutes}
-				<StoreRoutings />
-			</Switch>
+			<Switch>{allowedRoutes}</Switch>
 		</>
 	);
 };

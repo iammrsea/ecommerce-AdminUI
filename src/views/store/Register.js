@@ -67,7 +67,7 @@ const Register = () => {
 			<GridItem sm={12} md={8} mdOffset={2}>
 				<Card>
 					<CardBody>
-						<CardHeader className="indigo-text center-align">Register</CardHeader>
+						<CardHeader className="indigo-text center-align">Sign Up</CardHeader>
 						<Formik initialValues={initialValues} validate={validateForm} onSubmit={handleSubmit}>
 							{({ isSubmitting, submitForm }) => (
 								<>
@@ -85,7 +85,7 @@ const Register = () => {
 										<ErrorMessage name="password" component="div" style={{ color: 'red' }} />
 										<div className="register-action-buttons-container">
 											<Flat onClick={submitForm} disabled={isSubmitting} type="submit">
-												Register
+												Sign Up
 											</Flat>
 											<div>
 												<span
@@ -97,7 +97,7 @@ const Register = () => {
 												>
 													Already have an account?
 												</span>
-												<Flat onClick={() => history.push('/dashboard/login')}>Login</Flat>
+												<Flat onClick={() => history.push('/dashboard/login')}>Sign In</Flat>
 											</div>
 										</div>
 									</Form>

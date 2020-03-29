@@ -8,18 +8,22 @@ import Footer from 'layouts/admin/components/Footer';
 import { Container } from 'components';
 
 const Home = ({ children }) => {
+	const sideNav = React.useRef(null);
 	React.useEffect(() => {
 		const elems = document.querySelectorAll('.sidenav');
 		// eslint-disable-next-line
-		M.Sidenav.init(elems);
+		sideNav.current = M.Sidenav.init(elems);
 	});
 	React.useEffect(() => {
 		document.body.classList.remove('has-fixed-sidenav');
 	}, []);
+	const handleCloseSidenav = () => {
+		sideNav.current[0].close();
+	};
 	return (
 		<>
 			<Navbar />
-			<Sidebar />
+			<Sidebar closeSidenav={handleCloseSidenav} />
 			<Container>{children}</Container>
 			<Footer />
 		</>

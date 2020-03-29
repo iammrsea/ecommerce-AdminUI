@@ -1,22 +1,24 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { MaterialIcon } from 'components/icons';
+import { Container } from 'components';
 import { isLoggedIn } from 'service/auth/auth';
 import { activeRoute } from 'utils';
 
 import routes from './routes';
 
 const Navbar = () => {
-	const history = useHistory();
-
+	const handleLogoClick = () => {
+		window.location = '/';
+	};
 	const routeList = () => {
 		let filteredRoutes;
 		if (isLoggedIn()) {
 			filteredRoutes = routes
-				.filter(route => route.name !== 'Register')
-				.filter(route => route.name !== 'Login')
+				.filter(route => route.url !== '/dashboard/register')
+				.filter(route => route.url !== '/dashboard/login')
 				.map((route, i) => (
 					<li key={route.name + i} className="waves-effect ">
 						<NavLink
@@ -35,7 +37,6 @@ const Navbar = () => {
 						className="white-text"
 						to={route.url}
 						activeClassName={clsx({ 'active-route': activeRoute(route.url) })}
-						to={route.url}
 						exact
 					>
 						{route.name}
@@ -48,14 +49,23 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar-fixed">
-			<nav className="navbar indigo">
-				<div className="nav-wrapper">
-					<ul id="nav-mobile" className="right hide-on-med-and-down">
-						{routeList()}
-					</ul>
-					<button data-target="mobile-nav" className="sidenav-trigger hide-on-large-only">
-						<MaterialIcon children={'menu'} className="white-text" />
-					</button>
+			<nav>
+				<div className="nav-wrapper indigo">
+					<Container>
+						<span
+							onClick={handleLogoClick}
+							style={{ cursor: 'pointer' }}
+							className="brand-logo hide-on-med-and-down link"
+						>
+							WDYF
+						</span>
+						<ul id="nav-mobile" className="right hide-on-med-and-down">
+							{routeList()}
+						</ul>
+						<button data-target="mobile-nav" className="sidenav-trigger hide-on-large-only">
+							<MaterialIcon children={'menu'} className="white-text" />
+						</button>
+					</Container>
 				</div>
 			</nav>
 		</div>

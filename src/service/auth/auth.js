@@ -59,5 +59,9 @@ export const saveUser = user => {
 	}
 };
 export const isFromStore = () => {
-	return !!localStorage.getItem('user_from_store');
+	const cart = localStorage.getItem('user_from_store');
+	if (cart) {
+		localStorage.removeItem('user_from_store');
+	}
+	return !!cart;
 };

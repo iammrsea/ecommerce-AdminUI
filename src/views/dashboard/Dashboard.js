@@ -11,7 +11,7 @@ import { Container } from 'components';
 import { Flat } from 'components/buttons';
 import { MaterialIcon } from 'components/icons';
 
-import { LinearProgress, Alert, Avatar } from 'components';
+import { LinearProgress, Alert } from 'components';
 import { useGet } from 'service/hooks';
 
 import { authToken } from 'service/auth/auth';
@@ -72,10 +72,7 @@ const Dashboard = () => {
 	if (error) {
 		Alert({ message: error.message, color: 'red', outDuration: 500 });
 	}
-	const dataset = () => {
-		if (data) {
-		}
-	};
+
 	return (
 		<Container>
 			{loading && <LinearProgress />}
