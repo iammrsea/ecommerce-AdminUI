@@ -18,9 +18,9 @@ const style = {
 		padding: 40,
 	},
 	input: {
-		// padding: '15px',
+		padding: '15px',
 		borderRadius: '5px',
-		// marginBottom: 25,
+		boxSizing: 'border-box',
 		color: '#fff',
 		fontSize: '18px',
 	},

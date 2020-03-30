@@ -26,8 +26,9 @@ const style = {
 		padding: 40,
 	},
 	input: {
-		// padding: '15px',
+		padding: '15px',
 		borderRadius: '5px',
+		boxSizing: 'border-box',
 		marginBottom: 25,
 		color: '#fff',
 		fontSize: '18px',
@@ -130,7 +131,7 @@ const Register = () => {
 											</div>
 										</div>
 									</Form>
-									{isSubmitting && <LinearProgress />}
+									{isSubmitting && <LinearProgress style={{ marginBottom: 30 }} />}
 								</>
 							)}
 						</Formik>

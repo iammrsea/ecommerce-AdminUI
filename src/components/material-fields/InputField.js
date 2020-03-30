@@ -16,9 +16,9 @@ const InputField = ({ id, labelClassName, styleLabel, label, ...rest }) => {
 	);
 };
 
-InputField.defaultProps = {
-	labelClassName: 'active',
-};
+// InputField.defaultProps = {
+// 	labelClassName: 'active',
+// };
 InputField.propTypes = {
 	id: PropTypes.string.isRequired,
 	labelClassName: PropTypes.string,
