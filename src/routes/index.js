@@ -4,43 +4,43 @@ import { Dashboard, EmployeeView, CustomerView, UserProfileView, ProductView, Ca
 
 export default [
 	{
-		url: '/admin/dashboard',
+		url: '/dashboard',
 		name: 'Dashboard',
 		icon: <i className="material-icons">dashboard</i>,
 		component: <Dashboard />,
 	},
 	{
-		url: '/admin/profile',
+		url: '/profile',
 		name: 'User Profile',
 		icon: <i className="material-icons">person</i>,
 		component: <UserProfileView />,
 	},
 	{
-		url: '/admin/employees',
+		url: '/employees',
 		name: 'Employees',
 		icon: <i className="material-icons">people</i>,
 		component: <EmployeeView />,
 	},
 	{
-		url: '/admin/customers',
+		url: '/customers',
 		name: 'Customers',
 		icon: <i className="material-icons">people</i>,
 		component: <CustomerView />,
 	},
 	{
-		url: '/admin/products',
+		url: '/products',
 		name: 'Products',
 		icon: <i className="material-icons">shopping_basket</i>,
 		component: <ProductView />,
 	},
 	{
-		url: '/admin/categories',
+		url: '/categories',
 		name: 'Categories',
 		icon: <i className="material-icons">category</i>,
 		component: <CategoryView />,
 	},
 	{
-		url: '/admin/settings',
+		url: '/settings',
 		name: 'Settings',
 		icon: <i className="material-icons">settings</i>,
 		component: <SettingView />,

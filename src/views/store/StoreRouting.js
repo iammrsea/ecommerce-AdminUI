@@ -17,14 +17,13 @@ export default () => {
 			path={route.url}
 			render={() => {
 				if (route.url === '/dashboard' && isLoggedIn() && isCustomer() && isFromStore()) {
-					return <Redirect to="/dashboard/checkout" />;
-				} else if (route.url === '/dashboard' || route.url === '/dashboard/checkout') {
+					return <Redirect to="/checkout" />;
+				}
+				if (route.url === '/dashboard' || route.url === '/checkout') {
 					if (isLoggedIn() && isCustomer()) {
 						return <StoreLayout>{route.component}</StoreLayout>;
 					}
-					return <Redirect to="/dashboard/login" />;
-				} else {
-					return <StoreLayout>{route.component}</StoreLayout>;
+					return <Redirect to="/login" />;
 				}
 			}}
 		/>
@@ -34,22 +33,24 @@ export default () => {
 		<Switch>
 			<Route
 				exact
-				path="/dashboard/login"
+				path="/login"
 				render={() => {
 					if (isLoggedIn() && isCustomer()) return <Redirect to="/dashboard" />;
 					return <CustomerLogin />;
 				}}
 			/>
+			<Route exact path="/" render={()=><Redirect to="/login"/>} />
 			<Route
 				exact
-				path="/dashboard/register"
+				path="/register"
 				render={() => {
 					if (isLoggedIn() && isCustomer()) return <Redirect to="/dashboard" />;
 					return <CustomerRegister />;
 				}}
 			/>
+
 			{routeList}
-			{!isHomeRoute(location) && <Redirect to="/dashboard/login" />}
+			{!isHomeRoute(location) && <Redirect to="/login" />}
 		</Switch>
 	);
 };

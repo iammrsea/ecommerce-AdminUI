@@ -8,7 +8,6 @@ import ProductModal from './ProductModal';
 import { Card } from 'components/card';
 import { Flat } from 'components/buttons';
 
-
 import { dateFormatter } from 'utils';
 
 const Table = ({ response, loadMore, loadingMore, updateProductList }) => {
@@ -35,19 +34,11 @@ const Table = ({ response, loadMore, loadingMore, updateProductList }) => {
 	const actions = () => (
 		<div>
 			{hasMore(meta) && (
-				<Flat
-					disabled={loadingMore}
-					onClick={handleLoadMore}
-					className="right"
-				>
+				<Flat disabled={loadingMore} onClick={handleLoadMore} className="right">
 					Load more
 				</Flat>
 			)}
-			<Flat
-				disabled={loadingMore}
-				onClick={openModal}
-				className="right"
-			>
+			<Flat disabled={loadingMore} onClick={openModal} className="right">
 				Add Product
 			</Flat>
 		</div>
@@ -71,7 +62,7 @@ const Table = ({ response, loadMore, loadingMore, updateProductList }) => {
 		return meta.hasNext;
 	};
 	const handleRowClicked = row => {
-		history.push('/admin/products/' + row.id);
+		history.push('/products/' + row.id);
 	};
 	const handleLoadMore = () => {
 		loadMore(meta.nextCursor);

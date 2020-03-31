@@ -1,12 +1,12 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { useHistory, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { LinearProgress, Container } from 'components';
 import { InputField } from 'components/material-fields';
 import { GridRow, GridItem } from 'components/grid';
 import { SignInUp } from 'components/buttons';
-import { isAdminRoute } from 'service/auth/auth';
 
 const style = {
 	login: {
@@ -26,9 +26,8 @@ const style = {
 	},
 };
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit, adminRoute }) => {
 	const history = useHistory();
-	const location = useLocation();
 
 	const validateForm = values => {
 		const errors = {};
@@ -40,7 +39,7 @@ const LoginForm = ({ handleSubmit }) => {
 		return errors;
 	};
 	const handleRegisterClick = () => {
-		history.push('/dashboard/register');
+		history.push('/register');
 	};
 
 	return (
@@ -90,7 +89,7 @@ const LoginForm = ({ handleSubmit }) => {
 											style={{ color: 'orange', marginBottom: 30 }}
 										/>
 										<div className=" right-align">
-											{!isAdminRoute(location) && (
+											{!adminRoute && (
 												<SignInUp
 													className="login-btn"
 													onClick={handleRegisterClick}
@@ -121,3 +120,11 @@ const LoginForm = ({ handleSubmit }) => {
 };
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+	adminRoute: PropTypes.bool,
+	handleSubmit: PropTypes.func.isRequired,
+};
+LoginForm.defaultProps = {
+	adminRoute: false,
+};

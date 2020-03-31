@@ -38,7 +38,7 @@ const AddForm = ({ updateProductList, closeModal }) => {
 			.get('/categories')
 			.then(res => {
 				setCategories(res.data.data);
-				console.log(res);
+				// console.log(res);
 			})
 			.catch(e => {
 				console.log('error ', e.response);

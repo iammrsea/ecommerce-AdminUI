@@ -61,7 +61,7 @@ const Table = ({ response, loadMore, loadingMore }) => {
 		return meta.hasNext;
 	};
 	const handleRowClicked = row => {
-		history.push('/admin/customers/' + row.id);
+		history.push('/customers/' + row.id);
 	};
 	const handleLoadMore = () => {
 		loadMore(meta.nextCursor);

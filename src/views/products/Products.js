@@ -47,7 +47,7 @@ const ProductList = () => {
 		}, []);
 	};
 	if (data) {
-		console.log('products', data);
+		// console.log('products', data);
 		const list = [...allProducts.current.data, ...data.data];
 		allProducts.current = {
 			data: [...deDuplicate(list)],

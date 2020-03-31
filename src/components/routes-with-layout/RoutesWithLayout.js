@@ -20,7 +20,7 @@ export default ({ routes }) => {
 				if (isLoggedIn() && !isCustomer()) {
 					return <AdminLayout>{route.component}</AdminLayout>;
 				}
-				return <Redirect to="/admin" />;
+				return <Redirect to="/login" />;
 			}}
 		/>
 	));
@@ -28,15 +28,16 @@ export default ({ routes }) => {
 		<Switch>
 			<Route
 				exact
-				path="/admin"
+				path="/login"
 				render={() => {
-					if (isLoggedIn() && !isCustomer()) return <Redirect to="/admin/dashboard" />;
+					if (isLoggedIn() && !isCustomer()) return <Redirect to="/dashboard" />;
 					return <AdminLogin />;
 				}}
 			/>
+			<Route exact path="/" render={() => <Redirect to="/login" />} />
 			<Route
 				exact
-				path="/admin/customers/:id"
+				path="/customers/:id"
 				render={() => {
 					if (isLoggedIn() && !isCustomer()) {
 						return (
@@ -45,12 +46,12 @@ export default ({ routes }) => {
 							</AdminLayout>
 						);
 					}
-					return <Redirect to="/admin" />;
+					return <Redirect to="/login" />;
 				}}
 			/>
 			<Route
 				exact
-				path="/admin/products/:id"
+				path="/products/:id"
 				render={() => {
 					if (isLoggedIn() && !isCustomer())
 						return (
@@ -58,11 +59,11 @@ export default ({ routes }) => {
 								<ProductDetailView />
 							</AdminLayout>
 						);
-					return <Redirect to="/admin" />;
+					return <Redirect to="/login" />;
 				}}
 			/>
 			{allowedRoutes}
-			{!isHomeRoute(location) && <Redirect to="/admin" />}
+			{!isHomeRoute(location) && <Redirect to="/login" />}
 		</Switch>
 	);
 };

@@ -19,7 +19,7 @@ const Login = () => {
 			.then(res => {
 				setSubmitting(false);
 				if (res.data.user.role !== 'Customer') {
-					return history.replace('/dashboard/login');
+					return history.replace('/login');
 				}
 				saveUser(res.data);
 				history.push('/dashboard');

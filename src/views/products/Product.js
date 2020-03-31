@@ -30,7 +30,7 @@ const Product = ({ product, updateProduct }) => {
 	};
 	return (
 		<GridRow>
-			<GridItem sm={12}>
+			<GridItem sm={12} md={10} mdOffset={1}>
 				<Card>
 					<CardImage src={product.imageUrl}>
 						<Fab className="btn-large activator halfway-fab indigo">

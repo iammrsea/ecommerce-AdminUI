@@ -122,10 +122,7 @@ const Register = () => {
 												>
 													Already have an account?
 												</span>
-												<SignInUp
-													className="login-btn"
-													onClick={() => history.push('/dashboard/login')}
-												>
+												<SignInUp className="login-btn" onClick={() => history.push('/login')}>
 													Sign In
 												</SignInUp>
 											</div>

@@ -22,7 +22,7 @@ export default () => {
 			})
 			.then(res => {
 				setLoading(false);
-				console.log('res', res);
+				// console.log('res', res);
 				const transformedOrders = res.data.data.map(order => {
 					return {
 						...order,

@@ -38,7 +38,7 @@ export default ({ user, isCustomer, openModal }) => {
 	};
 	const signOutCustomer = () => {
 		signOut();
-		history.replace('/dashboard/login');
+		history.replace('/login');
 	};
 	return (
 		<Card>
@@ -74,7 +74,7 @@ export default ({ user, isCustomer, openModal }) => {
 					{!isCustomer && user.role !== 'Customer' && (
 						<Fab
 							style={{ marginTop: 20 }}
-							onClick={() => history.push('/admin/settings')}
+							onClick={() => history.push('/settings')}
 							className="right halfway-fab  indigo"
 						>
 							<MaterialIcon children={'edit'} />

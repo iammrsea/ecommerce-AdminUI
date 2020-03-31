@@ -36,7 +36,7 @@ const AdminLogin = () => {
 				Alert({ message: e.message, color: 'red' });
 			});
 	};
-	return <LoginForm handleSubmit={handleSubmit} />;
+	return <LoginForm handleSubmit={handleSubmit} adminRoute={true} />;
 };
 
 export default AdminLogin;

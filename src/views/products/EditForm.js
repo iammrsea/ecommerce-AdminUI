@@ -64,7 +64,7 @@ const EditForm = ({ updateProductList, closeModal, product, updateProduct }) => 
 			.get('/categories')
 			.then(res => {
 				setCategories(res.data.data);
-				console.log(res);
+				// console.log(res);
 			})
 			.catch(e => {
 				Alert({ message: e.message, color: 'red' });

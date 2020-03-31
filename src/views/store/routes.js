@@ -24,7 +24,7 @@ export default [
 	// 	component: <LoginView />,
 	// },
 	{
-		url: '/dashboard/checkout',
+		url: '/checkout',
 		name: 'Checkout',
 		icon: <MaterialIcon children="shopping_cart" />,
 		component: <CheckoutView />,

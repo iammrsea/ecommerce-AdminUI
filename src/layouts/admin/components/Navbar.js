@@ -8,9 +8,8 @@ const Navbar = () => {
 	const history = useHistory();
 
 	const handleSignOut = () => {
-		console.log('logging out...');
 		signOut();
-		history.replace('/admin');
+		history.replace('/login');
 	};
 	const handleLogoClick = () => {
 		window.location = '/';
@@ -30,7 +29,7 @@ const Navbar = () => {
 						</li>
 						<li className="hide-on-med-and-down">
 							<NavLink
-								to="/admin/settings"
+								to="/settings"
 								data-target="chat-dropdown"
 								className="white-text dropdown-trigger waves-effect"
 							>
