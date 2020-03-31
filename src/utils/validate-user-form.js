@@ -6,7 +6,7 @@ export default values => {
 		errors.email = 'Invalid email address';
 	} else if (!values.username) {
 		errors.username = 'Username is required';
-	} else if (!values.address) {
+	} else if (!values.phone) {
 		errors.phone = 'Phone is required';
 	} else if (!values.city) {
 		errors.city = 'City is required';
