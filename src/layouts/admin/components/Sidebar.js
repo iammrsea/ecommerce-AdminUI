@@ -26,10 +26,10 @@ const Sidebar = ({ pages, closeSidenav }) => {
 			</CollectionItem>
 		));
 	return (
-		<Collection id="sidenav-left" className="sidenav sidenav-fixed white">
+		<div id="sidenav-left" className="sidenav sidenav-fixed white" style={{ borderRight: 'solid 3px #f5f5f5' }}>
 			<Brand />
-			{items}
-		</Collection>
+			<Collection style={{ marginTop: 0 }}>{items}</Collection>
+		</div>
 	);
 };
 export default Sidebar;

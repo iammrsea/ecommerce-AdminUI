@@ -18,6 +18,7 @@ const UserForm = ({ inputStyle }) => {
 				label="Email Address"
 				autoFocus
 				style={inputStyle ? inputStyle : style.input}
+				labelClassName={inputStyle && 'noactive'}
 			/>
 
 			<ErrorMessage
@@ -33,6 +34,7 @@ const UserForm = ({ inputStyle }) => {
 				type="text"
 				id="username"
 				style={inputStyle ? inputStyle : style.input}
+				labelClassName={inputStyle && 'noactive'}
 			/>
 			<ErrorMessage
 				name="username"
@@ -41,15 +43,16 @@ const UserForm = ({ inputStyle }) => {
 			/>
 
 			<InputField
-				id="address"
-				name="address"
-				label="Address"
+				id="phone"
+				name="phone"
+				label="Phone"
 				autoComplete="off"
 				style={inputStyle ? inputStyle : style.input}
+				labelClassName={inputStyle && 'noactive'}
 				type="text"
 			/>
 			<ErrorMessage
-				name="address"
+				name="phone"
 				component="div"
 				style={{ color: inputStyle ? 'orange' : 'red', marginBottom: inputStyle && '30px' }}
 			/>
@@ -60,6 +63,7 @@ const UserForm = ({ inputStyle }) => {
 				label="City"
 				autoComplete="off"
 				style={inputStyle ? inputStyle : style.input}
+				labelClassName={inputStyle && 'noactive'}
 				type="text"
 			/>
 			<ErrorMessage
@@ -74,6 +78,7 @@ const UserForm = ({ inputStyle }) => {
 				label="State"
 				autoComplete="off"
 				style={inputStyle ? inputStyle : style.input}
+				labelClassName={inputStyle && 'noactive'}
 				type="text"
 			/>
 			<ErrorMessage
@@ -88,6 +93,7 @@ const UserForm = ({ inputStyle }) => {
 				label="Zip"
 				autoComplete="off"
 				style={inputStyle ? inputStyle : style.input}
+				labelClassName={inputStyle && 'noactive'}
 				type="text"
 			/>
 			<ErrorMessage

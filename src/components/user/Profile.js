@@ -24,7 +24,7 @@ export default ({ user, isCustomer, openModal }) => {
 		const localUser = {
 			Username: user.username,
 			Email: user.email,
-			Address: user.address,
+			Phone: user.phone,
 			City: user.city,
 			State: user.state,
 			Zip: user.zip,

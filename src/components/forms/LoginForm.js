@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { LinearProgress, Container } from 'components';
 import { InputField } from 'components/material-fields';
 import { GridRow, GridItem } from 'components/grid';
-import { Flat } from 'components/buttons';
+import { SignInUp } from 'components/buttons';
 import { isAdminRoute } from 'service/auth/auth';
 
 const style = {
@@ -91,19 +91,23 @@ const LoginForm = ({ handleSubmit }) => {
 										/>
 										<div className=" right-align">
 											{!isAdminRoute(location) && (
-												<Flat className="login-btn" onClick={handleRegisterClick} type="submit">
+												<SignInUp
+													className="login-btn"
+													onClick={handleRegisterClick}
+													type="submit"
+												>
 													Sign Up
-												</Flat>
+												</SignInUp>
 											)}
 
-											<Flat
+											<SignInUp
 												className="login-btn"
 												onClick={submitForm}
 												disabled={isSubmitting}
 												type="submit"
 											>
 												Sign In
-											</Flat>
+											</SignInUp>
 										</div>
 									</Form>
 								</>

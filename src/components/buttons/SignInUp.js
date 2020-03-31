@@ -2,13 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Flat = props => {
+const SignInUp = props => {
 	const { children, className, ...rest } = props;
 
 	return (
 		<button
 			style={{ textTransform: 'capitalize' }}
-			className={clsx(['btn waves-effect waves-light btn-flat product-btn'])}
+			className={clsx(['btn waves-effect waves-light btn-flat ', { 'product-btn': !className }, className])}
 			{...rest}
 		>
 			{children}
@@ -16,9 +16,9 @@ const Flat = props => {
 	);
 };
 
-Flat.propTypes = {
+SignInUp.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
 
-export default Flat;
+export default SignInUp;

@@ -3,3 +3,8 @@ export { default as deDuplicate } from './deDuplicate';
 export { default as dataset } from './dataset';
 export { default as activeRoute } from './activeRoute';
 export { default as validateUserForm } from './validate-user-form';
+export { default as getCustomerCart } from './getCart';
+export { default as removeCustomerCart } from './removeCart';
+export { default as cartExists } from './cartExists';
+export { default as getOrderId } from './getOrderId';
+export { default as saveOrderId } from './saveOrderId';

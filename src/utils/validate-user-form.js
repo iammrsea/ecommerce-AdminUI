@@ -7,7 +7,7 @@ export default values => {
 	} else if (!values.username) {
 		errors.username = 'Username is required';
 	} else if (!values.address) {
-		errors.address = 'Address is required';
+		errors.phone = 'Phone is required';
 	} else if (!values.city) {
 		errors.city = 'City is required';
 	} else if (!values.state) {

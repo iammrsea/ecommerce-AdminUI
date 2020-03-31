@@ -4,6 +4,12 @@ const columns = [
 		selector: 'id',
 		sortable: true,
 	},
+
+	{
+		name: 'Customer',
+		selector: 'customer',
+		sortable: true,
+	},
 	{
 		name: 'Quantity',
 		selector: 'qty',

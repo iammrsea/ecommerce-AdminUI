@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, useLocation } from 'react-router-dom';
+import { Route, Redirect, useLocation, Switch } from 'react-router-dom';
 
 import StoreLayout from './Home';
 import CustomerLogin from './Login';
@@ -31,7 +31,7 @@ export default () => {
 	));
 
 	return (
-		<>
+		<Switch>
 			<Route
 				exact
 				path="/dashboard/login"
@@ -50,6 +50,6 @@ export default () => {
 			/>
 			{routeList}
 			{!isHomeRoute(location) && <Redirect to="/dashboard/login" />}
-		</>
+		</Switch>
 	);
 };

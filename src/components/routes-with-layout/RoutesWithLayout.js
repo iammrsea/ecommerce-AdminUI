@@ -5,7 +5,7 @@ import { AdminLogin, ProductDetailView, CustomerProfileView } from 'views';
 
 // import StoreRoutings from 'views/store/StoreRouting';
 
-import { isLoggedIn, isCustomer, isHomeRoute } from 'service/auth/auth';
+import { isLoggedIn, isCustomer, isHomeRoute, authUser } from 'service/auth/auth';
 
 import { AdminLayout } from 'layouts';
 
@@ -25,7 +25,7 @@ export default ({ routes }) => {
 		/>
 	));
 	return (
-		<>
+		<Switch>
 			<Route
 				exact
 				path="/admin"
@@ -61,8 +61,8 @@ export default ({ routes }) => {
 					return <Redirect to="/admin" />;
 				}}
 			/>
-			<Switch>{allowedRoutes}</Switch>
+			{allowedRoutes}
 			{!isHomeRoute(location) && <Redirect to="/admin" />}
-		</>
+		</Switch>
 	);
 };

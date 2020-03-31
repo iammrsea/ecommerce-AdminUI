@@ -12,10 +12,16 @@ const Navbar = () => {
 		signOut();
 		history.replace('/admin');
 	};
+	const handleLogoClick = () => {
+		window.location = '/';
+	};
 	return (
 		<div className="navbar-fixed">
 			<nav className="navbar indigo">
 				<div className="nav-wrapper">
+					<span onClick={handleLogoClick} className="brand-logo link waves-effect white-text">
+						WDYF
+					</span>
 					<ul id="nav-mobile" className="right">
 						<li>
 							<span onClick={handleSignOut} className=" waves-effect white-text">

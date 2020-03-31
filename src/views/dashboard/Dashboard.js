@@ -4,6 +4,7 @@ import TotalCustomers from './components/total-customers/TotalCustomers';
 import TotalProducts from './components/total-products/TotalProducts';
 import TotalOrders from './components/total-orders/TotalOrders';
 import LatestSales from './components/latest-sales/LatestSales';
+import Orders from './components/orders/OrderTable';
 
 import { Card, CardAction, CardBody, CardHeader, CardReveal } from 'components/card';
 import { GridItem, GridRow } from 'components/grid';
@@ -97,31 +98,8 @@ const Dashboard = () => {
 				</GridRow>
 			)}
 			<GridRow>
-				<GridItem sm={12} md={8} mdOffset={2}>
-					<Card>
-						<CardBody>
-							<CardHeader className="indigo-text center-align">This is the header</CardHeader>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sed maiores eaque
-							consequuntur dignissimos reiciendis et, veritatis alias ipsum numquam laborum, architecto
-							vero asperiores? Ipsam ad dolorem pariatur consectetur nihil.
-						</CardBody>
-						<CardAction>
-							<Flat className="activator">Click Me</Flat>
-						</CardAction>
-						<CardReveal>
-							<CardHeader>
-								Card Title
-								<MaterialIcon className="right">close</MaterialIcon>
-							</CardHeader>
-							<p>
-								Here is some more information about this product that is only revealed once clicked on.
-							</p>
-
-							<MaterialIcon style={styles.icon} className="green circle">
-								folder
-							</MaterialIcon>
-						</CardReveal>
-					</Card>
+				<GridItem sm={12}>
+					<Orders />
 				</GridItem>
 			</GridRow>
 		</Container>

@@ -8,7 +8,7 @@ const Footer = () => {
 		<footer className="page-footer indigo darken-4 white-text">
 			<Container>
 				<GridRow>
-					<GridItem sm={6} md={4}>
+					<GridItem sm={4} smOffset={2} md={3} mdOffset={3}>
 						<h5>About</h5>
 						<ul className="white-text">
 							<li>
@@ -16,39 +16,9 @@ const Footer = () => {
 									Blog
 								</a>
 							</li>
-							<li>
-								<a className="white-text" href="#!">
-									Pricing
-								</a>
-							</li>
-							<li>
-								<a className="white-text" href="#!">
-									Docs
-								</a>
-							</li>
 						</ul>
 					</GridItem>
-					<GridItem sm={6} md={4}>
-						<h5>Connect</h5>
-						<ul className="white-text">
-							<li>
-								<a className="white-text" href="#!">
-									Community
-								</a>
-							</li>
-							<li>
-								<a className="white-text" href="#!">
-									Subscribe
-								</a>
-							</li>
-							<li>
-								<a className="white-text" href="#!">
-									Email
-								</a>
-							</li>
-						</ul>
-					</GridItem>
-					<GridItem sm={6} md={4}>
+					<GridItem sm={4} smOffset={2} md={3} mdOffset={3}>
 						<h5>Contact</h5>
 						<ul>
 							<li>
@@ -67,6 +37,14 @@ const Footer = () => {
 								</a>
 							</li>
 						</ul>
+					</GridItem>
+				</GridRow>
+
+				<GridRow>
+					<GridItem sm={12}>
+						<div className="footer-copyright center-align">
+							<Container>© {new Date().getFullYear()} wedoyourfarm.com</Container>
+						</div>
 					</GridItem>
 				</GridRow>
 			</Container>

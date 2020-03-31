@@ -72,6 +72,7 @@ const EditAccountForm = ({ user, updateUser }) => {
 									label="Email Address"
 									autoComplete="off"
 									style={style.input}
+									labelClassName="active"
 								/>
 								<ErrorMessage name="email" component="div" style={{ color: 'red' }} />
 
@@ -81,6 +82,7 @@ const EditAccountForm = ({ user, updateUser }) => {
 									autoComplete="off"
 									id="username"
 									style={style.input}
+									labelClassName="active"
 								/>
 								<ErrorMessage name="username" component="div" style={{ color: 'red' }} />
 
@@ -90,6 +92,7 @@ const EditAccountForm = ({ user, updateUser }) => {
 									label="Address"
 									autoComplete="off"
 									style={style.input}
+									labelClassName="active"
 									type="text"
 								/>
 								<ErrorMessage name="address" component="div" style={{ color: 'red' }} />
@@ -100,6 +103,7 @@ const EditAccountForm = ({ user, updateUser }) => {
 									label="City"
 									autoComplete="off"
 									style={style.input}
+									labelClassName="active"
 									type="text"
 								/>
 								<ErrorMessage name="city" component="div" style={{ color: 'red' }} />
@@ -110,6 +114,7 @@ const EditAccountForm = ({ user, updateUser }) => {
 									label="State"
 									autoComplete="off"
 									style={style.input}
+									labelClassName="active"
 									type="text"
 								/>
 								<ErrorMessage name="state" component="div" style={{ color: 'red' }} />
@@ -120,6 +125,7 @@ const EditAccountForm = ({ user, updateUser }) => {
 									label="Zip"
 									autoComplete="off"
 									style={style.input}
+									labelClassName="active"
 									type="text"
 								/>
 								<ErrorMessage name="zip" component="div" style={{ color: 'red' }} />

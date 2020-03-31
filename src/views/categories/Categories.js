@@ -4,6 +4,7 @@ import { LinearProgress, Alert, Container } from 'components';
 import { Collection, CollectionHeader, CollectionItem } from 'components/collections';
 import { Fab } from 'components/buttons';
 import { MaterialIcon } from 'components/icons';
+import { GridItem, GridRow } from 'components/grid';
 import { Card, CardBody, CardReveal, CardHeader } from 'components/card';
 import AddEditCategory from './AddEditCategory';
 
@@ -114,32 +115,39 @@ const Categories = () => {
 		<>
 			{loading && <LinearProgress />}
 			<Container>
-				<Card>
-					<CardBody className="categories">
-						<Fab className="btn-large activator halfway-fab  indigo">
-							<MaterialIcon children={'add'} />
-						</Fab>
-						<Collection className="with-header">
-							<CollectionHeader>
-								<h5 className="indigo-text center-align">Product Categories</h5>
-							</CollectionHeader>
-							{categoryList}
-						</Collection>
-					</CardBody>
-					<CardReveal>
-						<CardHeader className="indigo-text center-align" onClick={() => setEditableCategory(null)}>
-							{editableCategory ? 'Edit Category' : 'Add New Category'}
-							<MaterialIcon children={'close'} className="right" />
-						</CardHeader>
-						<AddEditCategory
-							category={editableCategory}
-							handleSaveChanges={handleSaveChanges}
-							loading={loading}
-							handleDelete={handleDelete}
-							handleSave={handleSave}
-						/>
-					</CardReveal>
-				</Card>
+				<GridRow>
+					<GridItem sm={12} md={10} mdOffset={1}>
+						<Card>
+							<CardBody className="categories">
+								<Fab className="btn-large activator halfway-fab  indigo">
+									<MaterialIcon children={'add'} />
+								</Fab>
+								<Collection className="with-header">
+									<CollectionHeader>
+										<h5 className="indigo-text center-align">Product Categories</h5>
+									</CollectionHeader>
+									{categoryList}
+								</Collection>
+							</CardBody>
+							<CardReveal>
+								<CardHeader
+									className="indigo-text center-align"
+									onClick={() => setEditableCategory(null)}
+								>
+									{editableCategory ? 'Edit Category' : 'Add New Category'}
+									<MaterialIcon children={'close'} className="right" />
+								</CardHeader>
+								<AddEditCategory
+									category={editableCategory}
+									handleSaveChanges={handleSaveChanges}
+									loading={loading}
+									handleDelete={handleDelete}
+									handleSave={handleSave}
+								/>
+							</CardReveal>
+						</Card>
+					</GridItem>
+				</GridRow>
 			</Container>
 		</>
 	);

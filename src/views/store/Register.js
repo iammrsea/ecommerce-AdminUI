@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { LinearProgress, Alert } from 'components';
 import { Card, CardBody, CardHeader } from 'components/card';
 import { GridItem, GridRow } from 'components/grid';
-import { Flat } from 'components/buttons';
+import { SignInUp } from 'components/buttons';
 import { UserForm } from 'components';
 import { InputField } from 'components/material-fields';
 
@@ -92,10 +92,10 @@ const Register = () => {
 											name="password"
 											label="Password"
 											autoComplete="off"
-											autoFocus
 											type="password"
 											id="password"
 											style={style.input}
+											labelClassName="noactive"
 										/>
 										<ErrorMessage
 											name="password"
@@ -103,14 +103,14 @@ const Register = () => {
 											style={{ color: 'orange', marginBottom: 30 }}
 										/>
 										<div className="register-action-buttons-container">
-											<Flat
+											<SignInUp
 												className="login-btn"
 												onClick={submitForm}
 												disabled={isSubmitting}
 												type="submit"
 											>
 												Sign Up
-											</Flat>
+											</SignInUp>
 											<div>
 												<span
 													style={{
@@ -122,12 +122,12 @@ const Register = () => {
 												>
 													Already have an account?
 												</span>
-												<Flat
+												<SignInUp
 													className="login-btn"
 													onClick={() => history.push('/dashboard/login')}
 												>
 													Sign In
-												</Flat>
+												</SignInUp>
 											</div>
 										</div>
 									</Form>
