@@ -4,8 +4,8 @@ This project is the implementation of the Admin UI and Customer Dashboard of thi
 
 It consists primarily of two branches:
 
-- master
-- customer dashboard
+-   master
+-   customer-dashboard
 
 I dervied the Admin UI and the Customer Dashboard UI builds from the master branch and customer dashboard branch respectively,
 and served the both from statically generated [NuxtJs Frontend](https://github.com/iammrsea/ecommerce).
@@ -17,9 +17,8 @@ React's component-based philosophy.
 
 For Demo, visit [We Do Your Farm](wedoyourfarm.netlify.com/admin).
 Admin login details:
-- username: [Tony Smith]()
-- password: [tonysmith]()
+
+-   username: [Tony Smith]()
+-   password: [tonysmith]()
 
 You can clone or download the repo and make changes to the codes according to your needs
-
-
