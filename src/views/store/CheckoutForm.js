@@ -15,13 +15,6 @@ import CardSection from './CardSection';
 import { cartExists, getCustomerCart, getOrderId, removeCustomerCart } from 'utils';
 import client from 'service/client';
 
-class Intent {
-	constructor(amount, currency) {
-		this.amount = amount;
-		this.currency = currency || 'usd';
-	}
-}
-
 const CheckoutForm = () => {
 	const stripe = useStripe();
 	const elements = useElements();
@@ -30,19 +23,19 @@ const CheckoutForm = () => {
 
 	if (response) {
 		Alert({ message: 'Transaction successful', color: 'green' });
-		console.log('response ', response);
+		// console.log('response ', response);
 		removeCustomerCart();
 		client(authToken())
 			.put('/orders/' + getOrderId(), {
 				status: 'completed',
 			})
-			.then(res => console.log('order edited', res))
+			// .then(res => console.log('order edited', res))
 			.catch(e => console.log('error updating order', e));
 	}
-	if (error) {
-		// Alert({ message: error.message, color: 'red' });
-		console.log(error);
-	}
+	// if (error) {
+	// 	// Alert({ message: error.message, color: 'red' });
+	// 	console.log(error);
+	// }
 	const createOrder = (cart, currency) => {
 		const customer = authUser();
 		let qty = 0;
@@ -67,8 +60,6 @@ const CheckoutForm = () => {
 		if (!cartExists()) return;
 		const cart = getCustomerCart();
 		const order = createOrder(cart);
-		console.log('order', order);
-		console.log('cart', cart);
 
 		if (!stripe || !elements) {
 			// Stripe.js has not yet loaded.
