@@ -13,8 +13,6 @@ import { dateFormatter } from 'utils';
 const Table = ({ response, loadMore, loadingMore, updateProductList }) => {
 	const { data, meta } = response;
 
-	const [selectedRows, setSelectedRows] = React.useState(null);
-
 	const modal = React.useRef(null);
 
 	const history = useHistory();
@@ -43,10 +41,6 @@ const Table = ({ response, loadMore, loadingMore, updateProductList }) => {
 			</Flat>
 		</div>
 	);
-
-	const handleChange = value => {
-		setSelectedRows(value);
-	};
 
 	const getProductList = data => {
 		return data.map(item => {
@@ -77,7 +71,6 @@ const Table = ({ response, loadMore, loadingMore, updateProductList }) => {
 				columns={columns}
 				data={customers}
 				actions={actions()}
-				onSelectedRowsChange={handleChange}
 				highlightOnHover
 				pagination
 				pointerOnHover

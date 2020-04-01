@@ -5,7 +5,7 @@ import { AdminLogin, ProductDetailView, CustomerProfileView } from 'views';
 
 // import StoreRoutings from 'views/store/StoreRouting';
 
-import { isLoggedIn, isCustomer, isHomeRoute, authUser } from 'service/auth/auth';
+import { isLoggedIn, isCustomer, isHomeRoute } from 'service/auth/auth';
 
 import { AdminLayout } from 'layouts';
 

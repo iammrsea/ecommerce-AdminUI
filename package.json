@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "/admin",
   "dependencies": {
+    "@octokit/rest": "^17.1.4",
     "@stripe/react-stripe-js": "^1.1.0",
     "@stripe/stripe-js": "^1.2.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -34,7 +35,11 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

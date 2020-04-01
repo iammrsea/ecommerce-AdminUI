@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { LinearProgress, Container } from 'components';

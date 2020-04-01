@@ -6,11 +6,8 @@ import TotalOrders from './components/total-orders/TotalOrders';
 import LatestSales from './components/latest-sales/LatestSales';
 import Orders from './components/orders/OrderTable';
 
-import { Card, CardAction, CardBody, CardHeader, CardReveal } from 'components/card';
 import { GridItem, GridRow } from 'components/grid';
 import { Container } from 'components';
-import { Flat } from 'components/buttons';
-import { MaterialIcon } from 'components/icons';
 
 import { LinearProgress, Alert } from 'components';
 import { useGet } from 'service/hooks';

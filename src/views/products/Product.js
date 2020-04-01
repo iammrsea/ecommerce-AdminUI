@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { dateFormatter } from 'utils';
 
@@ -7,10 +8,25 @@ import { Collection, CollectionHeader, CollectionItem } from 'components/collect
 import { GridItem, GridRow } from 'components/grid';
 import { Fab } from 'components/buttons';
 import { MaterialIcon } from 'components/icons';
+import { Alert, LinearProgress } from 'components';
+
+import client from 'service/client';
+import { authToken } from 'service/auth/auth';
 
 import EditForm from './EditForm';
 
+const styles = {
+	fabContainer: {
+		marginTop: -25,
+		display: 'flex',
+		justifyContent: 'flex-end',
+	},
+};
 const Product = ({ product, updateProduct }) => {
+	const history = useHistory();
+
+	const [deleting, setDeleting] = React.useState(false);
+
 	const productDetail = product => {
 		const localProduct = {
 			Description: product.description,
@@ -28,14 +44,35 @@ const Product = ({ product, updateProduct }) => {
 			</CollectionItem>
 		));
 	};
+	const handleDeleteClick = () => {
+		setDeleting(true);
+
+		client(authToken())
+			.delete('/products/' + product.id)
+			.then(res => {
+				setDeleting(false);
+				Alert({ message: `Product with name ${product.name} successfully deleted`, color: 'green' });
+				history.replace('/products');
+			})
+			.catch(e => {
+				setDeleting(false);
+				Alert({ message: e.message, color: 'red' });
+			});
+	};
 	return (
 		<GridRow>
 			<GridItem sm={12} md={10} mdOffset={1}>
+				{deleting && <LinearProgress />}
 				<Card>
 					<CardImage src={product.imageUrl}>
-						<Fab className="btn-large activator halfway-fab indigo">
-							<MaterialIcon children={'edit'} />
-						</Fab>
+						<div style={styles.fabContainer}>
+							<Fab className="btn activator  indigo" style={{ marginRight: 5 }}>
+								<MaterialIcon children={'edit'} />
+							</Fab>
+							<Fab onClick={handleDeleteClick} className="btn  red" style={{ marginRight: 5 }}>
+								<MaterialIcon children={'delete'} />
+							</Fab>
+						</div>
 					</CardImage>
 					<CardBody>
 						<Collection className="with-header">

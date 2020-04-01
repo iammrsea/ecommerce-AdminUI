@@ -1,6 +1,15 @@
 import React from 'react';
 
-import { Dashboard, EmployeeView, CustomerView, UserProfileView, ProductView, CategoryView, SettingView } from 'views';
+import {
+	Dashboard,
+	RebuildView,
+	EmployeeView,
+	CustomerView,
+	UserProfileView,
+	ProductView,
+	CategoryView,
+	SettingView,
+} from 'views';
 
 export default [
 	{
@@ -44,5 +53,11 @@ export default [
 		name: 'Settings',
 		icon: <i className="material-icons">settings</i>,
 		component: <SettingView />,
+	},
+	{
+		url: '/rebuild',
+		name: 'Re-Build',
+		icon: <i className="material-icons">build</i>,
+		component: <RebuildView />,
 	},
 ];

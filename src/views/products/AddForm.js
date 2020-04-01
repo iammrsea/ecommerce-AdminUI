@@ -90,8 +90,6 @@ const AddForm = ({ updateProductList, closeModal }) => {
 					...values,
 				});
 				closeModal();
-
-				console.log('res for upload ', res);
 			})
 			.catch(e => {
 				setSubmitting(false);
@@ -101,7 +99,6 @@ const AddForm = ({ updateProductList, closeModal }) => {
 
 	const handleInput = e => {
 		setFile(e.target.files[0]);
-		console.log(e.target.files[0]);
 	};
 
 	const options =

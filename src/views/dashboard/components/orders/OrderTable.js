@@ -1,8 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 
-import { Card, CardHeader, CardReveal, CardBody } from 'components/card';
-import { MaterialIcon } from 'components/icons';
+import { Card, CardBody } from 'components/card';
 import { Alert, LinearProgress } from 'components';
 
 import client from 'service/client';
@@ -23,12 +22,13 @@ export default () => {
 			.then(res => {
 				setLoading(false);
 				// console.log('res', res);
-				const transformedOrders = res.data.data.map(order => {
+				const transformedOrders = res.data.data.map((order, i) => {
 					return {
 						...order,
 						customer: order.user.username,
 						createdAt: dateFormatter(order.createdAt),
 						user: null,
+						id: i + 1,
 					};
 				});
 				setOrders(transformedOrders);
