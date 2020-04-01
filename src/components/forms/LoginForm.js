@@ -39,7 +39,7 @@ const LoginForm = ({ handleSubmit, adminRoute }) => {
 		return errors;
 	};
 	const handleRegisterClick = () => {
-		history.push('/register');
+		history.replace('/register');
 	};
 
 	return (
