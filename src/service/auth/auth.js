@@ -75,3 +75,11 @@ export const isHomeRoute = location => {
 export const isCustomerRoute = location => {
 	return location.pathname === '/dashboard' || location.pathname === '/dashboard/';
 };
+export const hasRebuildToken = () => {
+	const user = authUser();
+	return !!user.rebuild_token;
+};
+
+export const rebuildToken = () => {
+	return authUser().rebuild_token;
+};

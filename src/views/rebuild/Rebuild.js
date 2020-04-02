@@ -4,27 +4,25 @@ import { GridRow, GridItem } from 'components/grid';
 import { Card, CardBody, CardHeader, CardAction } from 'components/card';
 import { Flat } from 'components/buttons';
 import { Container, Alert, LinearProgress } from 'components';
-// import gitClient from 'service/gitClient';
+import useRebuild from 'service/rebuild';
+import { hasRebuildToken } from 'service/auth/auth';
 
 const Rebuild = () => {
-	const [loading, setLoading] = React.useState(false);
+	const { rebuild, loading, error } = useRebuild();
 
-	const handleGenerateClick = () => {
-		setLoading(true);
-		setTimeout(() => {
-			setLoading(false);
-			Alert({ message: 'Request successfully sent', color: 'green' });
-		}, 1000);
+	const handleGenerateClick = async () => {
+		if (!hasRebuildToken()) {
+			return Alert({ message: "You don't have the admin permission to perform this action", color: 'orange' });
+		}
 
-		// const kit = gitClient('ieiie');
-
-		console.log('regenerating...');
+		rebuild();
 	};
 	return (
 		<Container>
 			<GridRow>
 				<GridItem sm={12} md={8} mdOffset={2}>
 					{loading && <LinearProgress />}
+					{error && Alert({ message: error.message, color: 'red' })}
 					<Card>
 						<CardBody>
 							<CardHeader className="indigo-text">Re-generate the store</CardHeader>
