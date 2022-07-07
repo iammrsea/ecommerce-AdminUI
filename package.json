@@ -16,7 +16,7 @@
     "formik": "^2.1.4",
     "js-base64": "^2.5.2",
     "materialize-css": "^1.0.0-rc.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
     "react-chartjs-2": "^2.9.0",
